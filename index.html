@@ -1,14 +1,35 @@
 <!doctype html>
 <html ng-app>
 	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+		<script>
+			
+			
+			$(document).ready(function(){
+				$('.donutbtn').click(function(){
+				var valx = document.getElementById('val');
+				$('.images-here').empty();
+				for(var i = 0; i < $('input[id=val]').val(); i++){
+					$('.images-here').append('<img src="donut.jpg" />');
+				}
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div>
 			<label> NumDonuts:</label>
-			<input type="text" ng-model="donuts" placeholder="Buy Some Donuts">
+			<input id="val" type="number" ng-model="donuts" placeholder="Buy Some Donuts">
 			<hr>
-			<h1>You Bought {{donuts}} Donuts! </h1>
+
+			<button class="donutbtn" > Buy {{donuts}} donuts!
+				</button>
+
+				<h1>You Bought {{donuts}} Donuts! </h1>
+				<div class="images-here">
+
+				</div>
 		</div>
 	</body>
 </html>
